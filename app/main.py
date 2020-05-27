@@ -2,8 +2,8 @@ import os
 import time
 
 from flask import Flask, jsonify, request, abort
-from functions import some_long_function
-from redis_resc import redis_queue, redis_conn
+from .functions import some_long_function
+from .redis_resc import redis_queue, redis_conn
 from rq.job import Job
 
 app = Flask(__name__)
