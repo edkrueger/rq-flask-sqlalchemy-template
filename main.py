@@ -28,5 +28,12 @@ def check_status():
           "job_status": job.get_status()
      })
 
+@app.route("/get_result")
+def get_result():
+     job_id = request.args["job_id"]
+     job = Job.fetch(job_id, connection=redis_conn)
+     return jsonify(job.result)
+
 if  __name__ == "__main__":
      app.run(debug=True)
+     
