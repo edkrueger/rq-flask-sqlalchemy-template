@@ -7,6 +7,9 @@ Find container id: `docker ps`
 Stop redis: `docker kill <container id>`   
 
 ## Start the Redis Queue Worker
-start: rq worker
+start: `rq worker`  
+
+
+
 
 
