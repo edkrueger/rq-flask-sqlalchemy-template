@@ -1,7 +1,12 @@
 import time
 
+from rq import get_current_job
+
+
 def some_long_function(some_input):
-    with open("database.txt", "a+") as out_file:
+        job = get_current_job()
         time.sleep(10)
-        out_file.write(some_input + "\n")
-        return
+        return {
+            "job_id": job.id,
+            "result": some_input
+        }
