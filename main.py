@@ -19,5 +19,14 @@ def enqueue():
           "job_id": job.id
      })
 
+@app.route("/check_status")
+def check_status():
+     job_id = request.args["job_id"]
+     job = Job.fetch(job_id, connection=redis_conn)
+     return jsonify({
+          "job_id": job.id,
+          "job_status": job.get_status()
+     })
+
 if  __name__ == "__main__":
      app.run(debug=True)
