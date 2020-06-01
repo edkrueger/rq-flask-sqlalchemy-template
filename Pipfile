@@ -9,6 +9,7 @@ verify_ssl = true
 redis = "*"
 flask = "*"
 gunicorn = "*"
+sqlalchemy = "*"
 
 [requires]
 python_version = "3.7"
