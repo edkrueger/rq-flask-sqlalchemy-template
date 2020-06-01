@@ -4,12 +4,18 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+black = "*"
+pylint = "*"
+pre-commit = "*"
 
 [packages]
-redis = "*"
-flask = "*"
-gunicorn = "*"
-sqlalchemy = "*"
+redis = "==3.5.2"
+flask = "==1.1.2"
+gunicorn = "==20.0.4"
+sqlalchemy = "==1.3.17"
 
 [requires]
 python_version = "3.7"
+
+[pipenv]
+allow_prereleases = true
