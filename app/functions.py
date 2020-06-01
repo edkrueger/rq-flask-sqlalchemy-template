@@ -10,9 +10,6 @@ models.Base.metadata.create_all(bind=engine)
 def some_long_function(some_input):
         job = get_current_job()
         time.sleep(10)
-        # datetime.datetime
-        print(type(job.enqueued_at))
-        print(type(job.started_at))
 
         db = SessionLocal()
 
@@ -27,8 +24,6 @@ def some_long_function(some_input):
         db.add(result)
         db.commit()
         db.close()
-
-
 
         return {
             "job_id": job.id,
