@@ -1,3 +1,5 @@
+"""Define functions to use in redis queue."""
+
 import time
 
 from rq import get_current_job
@@ -9,10 +11,11 @@ models.Base.metadata.create_all(bind=engine)
 
 
 def some_long_function(some_input):
+    """An example function for redis queue."""
     job = get_current_job()
     time.sleep(10)
 
-    db = SessionLocal()
+    sql_db = SessionLocal()
 
     result = models.Result(
         job_id=job.id,
@@ -22,9 +25,9 @@ def some_long_function(some_input):
         result=some_input,
     )
 
-    db.add(result)
-    db.commit()
-    db.close()
+    sql_db.add(result)
+    sql_db.commit()
+    sql_db.close()
 
     return {
         "job_id": job.id,

@@ -1,11 +1,17 @@
-from sqlalchemy import Column, Integer, String
-from sqlalchemy.types import DateTime, JSON
-from .database import Base
+"""SQLAlchemy database models."""
 import datetime
+
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.types import JSON, DateTime
+
+from .database import Base
 
 
 class DictMixIn:
+    """Provides a to_dict method to a SQLAlchemy database model."""
+
     def to_dict(self):
+        """Returns a JSON serializable dictionary from a SQLAlchemy database model."""
         return {
             column.name: getattr(self, column.name)
             if not isinstance(
@@ -17,6 +23,7 @@ class DictMixIn:
 
 
 class Result(Base, DictMixIn):
+    """A SQLAlchemy model for the Results table."""
 
     __tablename__ = "Results"
 

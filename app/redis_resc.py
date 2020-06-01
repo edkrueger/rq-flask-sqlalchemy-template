@@ -1,3 +1,4 @@
+"""Sets up the redis connection and the redis queue."""
 import os
 
 import redis
