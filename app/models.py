@@ -1,8 +1,8 @@
-
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.types import DateTime, JSON
 from .database import Base
 import datetime
+
 
 class DictMixIn:
     def to_dict(self):
