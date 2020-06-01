@@ -1,5 +1,14 @@
 # redis-demo
 
+## Setup
+Run `pipenv install` to install the env.  
+Run `pipenv run pre-commit install` to initialize the git hooks.  
+Run `pipenv run pre-commit run --all-files` if there are file that were committed before adding the git hooks.  
+
+## Dev Tools
+Activate the shell with: `pipenv shell`  
+Lint with: `pylint app/`  
+
 ## Start Redis for Dev
 Get redis docker image: `docker pull redis`  
 Start redis: `docker run -d -p 6379:6379 redis`  
