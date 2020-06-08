@@ -7,6 +7,7 @@ verify_ssl = true
 black = "*"
 pylint = "*"
 pre-commit = "*"
+pipenv-to-requirements = "*"
 
 [packages]
 redis = "==3.5.2"
