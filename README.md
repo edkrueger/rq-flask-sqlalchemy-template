@@ -23,5 +23,9 @@ Empty all redis queues: `rq empty --all`
 Start the flask app on dev server: `export FLASK_APP=app.main:app && flask run --reload`  
 Start the flask app in production server: `gunicorn app.main:app`  
 
-
+## Build and Run the App With Docker
+Run `docker build . -t rq-sqlalchemy` to build the container.  
+Run `docker-compose up` to start the app.  
+Run `docker-compose up -d` to start the app in detached mode.  
+Run `docker-compose down` to stop the app.
 
