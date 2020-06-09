@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+    redis:
+        image: redis
+        ports:
+            - "6379:6379"
+    app:
+        image: rq-sqlalchemy:latest
+        environment: 
+            - PORT=8000
+            - REDIS_HOST=redis
+            - REDIS_PORT=6379
+        ports:
+            - "8000:8000"
+    worker:
+        image: rq-sqlalchemy:latest
+        command: rq worker --url redis://redis:6379 
+
+        
