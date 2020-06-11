@@ -2,8 +2,6 @@
 
 # pylint: disable=broad-except
 
-import time
-
 from flask import Flask, _app_ctx_stack, abort, jsonify, request
 from rq.job import Job
 from sqlalchemy.orm import scoped_session
@@ -31,13 +29,25 @@ def home():
     return "Running!"
 
 
-@app.route("/enqueue")
+@app.route("/enqueue", methods=["POST", "GET"])
 def enqueue():
     """Enqueues a task into redis queue to be processes.
     Returns the job_id."""
-    job = redis_queue.enqueue(
-        some_long_function, f"This message was queued it {time.time()}"
-    )
+    if request.method == "GET":
+        query_param = request.args.get("external_id")
+        if not query_param:
+            abort(
+                404,
+                description=(
+                    "No query parameter external_id passed. "
+                    "Send a value to the external_id query parameter."
+                ),
+            )
+        data = {"external_id": query_param}
+    if request.method == "POST":
+        data = request.json
+
+    job = redis_queue.enqueue(some_long_function, data)
     return jsonify({"job_id": job.id})
 
 

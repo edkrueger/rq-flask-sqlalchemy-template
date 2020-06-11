@@ -31,5 +31,5 @@ class Result(Base, DictMixIn):
     job_id = Column(String, index=True)
     job_enqueued_at = Column(DateTime)
     job_started_at = Column(DateTime)
-    input = Column(String)
+    input = Column(JSON)
     result = Column(JSON)
