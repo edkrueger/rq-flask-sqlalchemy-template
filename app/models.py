@@ -28,7 +28,7 @@ class Result(Base, DictMixIn):
     __tablename__ = "Results"
 
     id = Column(Integer, primary_key=True, index=True)
-    job_id = Column(String, index=True)
+    job_id = Column(String(36), index=True)
     job_enqueued_at = Column(DateTime)
     job_started_at = Column(DateTime)
     input = Column(JSON)
