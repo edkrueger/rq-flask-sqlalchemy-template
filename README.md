@@ -1,5 +1,11 @@
 # redis-demo
 
+
+## Environmental Variables
+Copy `example.env` to `.env`.  
+Put your SQLAlchemy connection string into `.env` where indicated.  
+
+
 ## Dev Instructions
 Run `pipenv install --dev` to install the env.  
 Run `pipenv run pre-commit install` to initialize the git hooks.  
@@ -24,7 +30,7 @@ Start the flask app on dev server: `export FLASK_APP=app.main:app && flask run -
 Start the flask app in production server: `gunicorn app.main:app`  
 
 ## Build and Run the App With Docker
-Run `docker build . -t rq-sqlalchemy` to build the container.  
+Run `docker-compose build` to build the containers.  
 Run `docker-compose up` to start the app.  
 Run `docker-compose up -d` to start the app in detached mode.  
 Run `docker-compose down` to stop the app.
