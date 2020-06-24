@@ -29,7 +29,13 @@ Empty all redis queues: `rq empty --all`
 Start the flask app on dev server: `export FLASK_APP=app.main:app && flask run --reload`  
 Start the flask app in production server: `gunicorn app.main:app`  
 
-## Build and Run the App With Docker
+## Build and Run the App With Docker (Dev)
+Run `docker-compose -f docker-compose-dev.yml build` to build the containers.  
+Run `docker-compose -f docker-compose-dev.yml up` to start the app.  
+Run `docker-compose -f docker-compose-dev.yml up -d` to start the app in detached mode.  
+Run `docker-compose -f docker-compose-dev.yml` to stop the app.
+
+## Build and Run the App With Docker (Prod)
 Run `docker-compose build` to build the containers.  
 Run `docker-compose up` to start the app.  
 Run `docker-compose up -d` to start the app in detached mode.  
